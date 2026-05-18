@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHARMELLEE</title>
+    <style>
+        body { 
+            font-family: sans-serif; 
+            background-color: #f4f4f4; 
+            text-align: center; 
+            padding: 20px; 
+        }
+        .container { 
+            max-width: 500px; 
+            margin: 0 auto; 
+            background: white; 
+            padding: 30px; 
+            border-radius: 20px; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+        }
+        h1 { color: #333; }
+        p { color: #666; }
+        
+        /* Butonların Genel Yapısı */
+        .link-butonu { 
+            display: block; 
+            padding: 15px; 
+            margin-bottom: 15px; 
+            border-radius: 10px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            font-size: 16px;
+            transition: 0.2s;
+            opacity: 1 !important; /* Tamamen opak, şeffaflık yok */
+        }
+        
+        /* 1. KATALOG: Tam İstediğin Opak Açık Yeşil ve Siyah Yazı */
+        .kat-yesil { 
+            background-color: #e2f0d9 !important; 
+            color: #000000 !important; /* Düz Siyah Yazı */
+            border: 1px solid #d3e7ca;
+        }
+        .kat-yesil:hover { background-color: #d2e7c7 !important; }
+
+        /* 2. SHOPIER: Tam İstediğin Opak Açık Mor ve Siyah Yazı */
+        .shop-mor { 
+            background-color: #e8daef !important; 
+            color: #000000 !important; /* Düz Siyah Yazı */
+            border: 1px solid #dcbeeb;
+        }
+        .shop-mor:hover { background-color: #dbbef0 !important; }
+
+        /* 3. INSTAGRAM: Tam İstediğin Opak Açık Mavi ve Siyah Yazı */
+        .insta-mavi { 
+            background-color: #aed6f1 !important; 
+            color: #000000 !important; /* Düz Siyah Yazı */
+            border: 1px solid #99cbfa;
+        }
+        .insta-mavi:hover { background-color: #99ccf0 !important; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>CHARMELLEE</h1>
+        <p>Hoş geldin!</p>
+
+        <a href="urunler.html" class="link-butonu kat-yesil">Katalog</a>
+
+        <a href="SHOPPIER_LINKINI_BURAYA_YAZ" target="_blank" class="link-butonu shop-mor">Shopier</a>
+        
+        <a href="https://www.instagram.com/charmellee.shop?igsh=MWFmOWQ5NDJqa21j" target="_blank" class="link-butonu insta-mavi">Instagram</a>
+       
+    </div>
+
+</body>
+</html>
