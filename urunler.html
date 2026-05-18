@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHARMELLEE - Ürün Kataloğu</title>
+    <style>
+      body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fafafa;
+            margin: 0;
+            padding: 10px; /* Telefonlar için kenar boşluğunu biraz daralttık */
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 24px; /* Telefonlarda çok büyük durmasın */
+        }
+
+        .geri-buton {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #000;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        .geri-buton:hover {
+            background-color: #444;
+        }
+
+        /* Hem bilgisayarda hem telefonda HER ZAMAN yan yana 3 sütun yapan ana kutu */
+        .katalog-konteyner {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Bilgisayar-telefon fark etmez, hep yan yana 3 tane */
+            gap: 10px; /* Telefon ekranında taşma yapmaması için aradaki boşluğu azalttık */
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 5px;
+        }
+
+        /* Her bir ürün kartının şık tasarımı */
+        .urun-kart {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 8px; /* Telefon için iç boşluğu küçülttük */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+            border: 1px solid #eee;
+            box-sizing: border-box;
+        }
+
+        /* Fotoğrafların kare kalması ve taşmaması için ayar */
+        .urun-kart img {
+            width: 100%;
+            height: 110px; /* Telefon ekranında resimlerin sığması için yüksekliği ideal seviyeye çektik */
+            object-fit: cover;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        /* Ürün ismi ve fiyat yazısı */
+        .urun-kart p {
+            font-size: 11px; /* Telefon ekranında yazılar üst üste binmesin diye puntoyu küçülttük */
+            font-weight: bold;
+            color: #444;
+            margin-top: 8px;
+            margin-bottom: 0;
+            line-height: 1.2;
+        }
+
+        /* ---- TIKLAYINCA AÇILAN BÜYÜK MODAL EKRANI STİLİ ---- */
+        .resim-modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1000; 
+            padding-top: 60px; 
+            left: 0; top: 0;
+            width: 100%; height: 100%; 
+            background-color: rgba(0,0,0,0.85);
+        }
+
+        .modal-icerik {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 80vh;
+            border-radius: 10px;
+        }
+
+        .kapat-butonu {
+            position: absolute;
+            top: 20px; right: 35px;
+            color: #fff;
+            font-size: 45px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Anahtarlık Kataloğu</h1>
+    <a href="index.html" class="geri-buton">⬅ Ana Menüye Dön</a>
+
+    <div class="katalog-konteyner">
+
+         
+        <div class="urun-kart">
+            <img src="Web_Photo_Editor(4).jpg" onclick="buyutResim(this)" alt="Civciv">
+            <p>Civciv - 150 TL</p>
+        </div>
+
+        <div class="urun-kart">
+            <img src="Web_Photo_Editor (1).jpg" onclick="buyutResim(this)" alt="Civciv Model 1">
+            <p>Civciv Model 1 - 150 TL</p>
+        </div>
+
+        <div class="urun-kart">
+            <img src="Web_Photo_Editor (2).jpg" onclick="buyutResim(this)" alt="Civciv Model 2">
+            <p>Civciv Model 2 - 150 TL</p>
+        </div>
+
+        <div class="urun-kart">
+            <img src="Web_Photo_Editor (3).jpg" onclick="buyutResim(this)" alt="Civciv Model 3">
+            <p>Civciv Model 3 - 150 TL</p>
+        </div>
+
+        <div class="urun-kart">
+            <img src="Web_Photo_Editor (0).jpg" onclick="buyutResim(this)" alt="Civciv Model 4">
+            <p>Civciv Model 4 - 150 TL</p>
+        </div>
+
+        <div class="urun-kart">
+            <img src="Web_Photo_Editor (5).jpg" onclick="buyutResim(this)" alt="Civciv Model 5">
+            <p>Civciv Model 5 - 150 TL</p>
+        </div>
+
+        <div class="urun-kart">
+            <img src="Web_Photo_Editor (6).jpg" onclick="buyutResim(this)" alt="Civciv Model 6">
+            <p>Civciv Model 6 - 150 TL</p>
+        </div>
+        
+        <div class="urun-kart">
+            <img src="Web_Photo_Editor (7).jpg" onclick="buyutResim(this)" alt="Köpek Büyük">
+            <p>Köpek Büyük - 300TL</p>
+        </div>
+
+        <div class="urun-kart">
+            <img src="Web_Photo_Editor (8).jpg" onclick="buyutResim(this)" alt="Yaprak Şapkalı Tilki Büyük">
+            <p>Yaprak Şapkalı Tilki Büyük - 300 TL</p>
+        </div>
+
+        <div class="urun-kart">
+            <img src="Web_Photo_Editor (9).jpg" onclick="buyutResim(this)" alt="Hello Kitty kırmızı">
+            <p>Hello Kitty kırmızı - 250 TL</p>
+        </div>
+
+        <div class="urun-kart">
+            <img src="Web_Photo_Editor (10).jpg" onclick="buyutResim(this)" alt="Tilki">
+            <p>Tilki - 200 TL</p>
+        </div>
+
+        <div class="urun-kart">
+            <img src="Web_Photo_Editor (11).jpg" onclick="buyutResim(this)" alt="Minions Büyük">
+            <p>Minions Büyük - 200 TL</p>
+        </div>
+
+        <div class="urun-kart">
+            <img src="Web_Photo_Editor (12).jpg" onclick="buyutResim(this)" alt="Daisy Büyük">
+            <p>Daisy Büyük - 200 TL</p>
+        </div>
+        
+        <div class="urun-kart">
+            <img src="Web_Photo_Editor (13).jpg" onclick="buyutResim(this)" alt="Donald Büyük">
+            <p>Donald Büyük- 200 TL</p>
+        </div>
+
+        <div class="urun-kart">
+            <img src="Web_Photo_Editor (14).jpg" onclick="buyutResim(this)" alt="Tigger Büyük ">
+            <p>Tigger Büyük - 200 TL</p>
+        </div>
+
+        <div class="urun-kart">
+            <img src="Web_Photo_Editor (15).jpg" onclick="buyutResim(this)" alt="Winnie Büyük">
+            <p>Winnie Büyük - 200 TL</p>
+        </div>
+        
+        <div class="urun-kart">
+            <img src="Web_Photo_Editor (16).jpg" onclick="buyutResim(this)" alt="Kurbağa Kanatlı">
+            <p>Kurbağa Kanatlı - 200 TL</p>
+        </div>
+        
+        <div class="urun-kart">
+            <img src="Web_Photo_Editor (17).jpg" onclick="buyutResim(this)" alt="Kurbağa">
+            <p>Kurbağa - 150 TL</p>
+        </div>
+        
+        <div class="urun-kart">
+            <img src="Web_Photo_Editor (18).jpg" onclick="buyutResim(this)" alt="Balina">
+            <p>Balina - 150 TL</p>
+        </div>
+        
+        <div class="urun-kart">
+            <img src="Web_Photo_Editor (19).jpg" onclick="buyutResim(this)" alt="Ayı Kahverengi">
+            <p>Ayı Kahverengi - 150 TL</p>
+        </div>
+        
+        <div class="urun-kart">
+            <img src="Web_Photo_Editor (20).jpg" onclick="buyutResim(this)" alt="Ayı Beyaz">
+            <p>Ayı Beyaz - 150 TL</p>
+        </div>
+        
+        <div class="urun-kart">
+            <img src="Web_Photo_Editor (21).jpg" onclick="buyutResim(this)" alt="Panda">
+            <p>Panda - 150 TL</p>
+        </div>
+        
+        <div class="urun-kart">
+            <img src="Web_Photo_Editor (22).jpg" onclick="buyutResim(this)" alt="Arı">
+            <p>Arı - 150 TL</p>
+        </div>
+        
+        <div class="urun-kart">
+            <img src="Web_Photo_Editor (23).jpg" onclick="buyutResim(this)" alt="Uğur Böceği">
+            <p>Uğur Böceği - 150 TL</p>
+        </div>
+        
+        <div class="urun-kart">
+            <img src="Web_Photo_Editor (24).jpg" onclick="buyutResim(this)" alt="Kelebek Mor">
+            <p>Kelebek Mor - 150 TL</p>
+        </div>
+        
+        <div class="urun-kart">
+            <img src="Web_Photo_Editor (25).jpg" onclick="buyutResim(this)" alt="İnek Siyah">
+            <p>İnek Siyah - 150 TL</p>
+        </div>
+        
+        <div class="urun-kart">
+            <img src="Web_Photo_Editor (26).jpg" onclick="buyutResim(this)" alt="İnek Kahverengi">
+            <p>İnek Kahverengi - 150 TL</p>
+        </div>
+        
+        <div class="urun-kart">
+            <img src="Web_Photo_Editor (27).jpg" onclick="buyutResim(this)" alt="Mickey Mouse">
+            <p>Mickey Mouse - 150 TL</p>
+        </div>
+        
+        <div class="urun-kart">
+            <img src="Web_Photo_Editor (28).jpg" onclick="buyutResim(this)" alt="Minnie Mouse">
+            <p>Minnie Mouse - 150 TL</p>
+        </div>
+        
+        <div class="urun-kart">
+            <img src="Web_Photo_Editor (29).jpg" onclick="buyutResim(this)" alt="Winnie ">
+            <p>Winnie - 150 TL</p>
+        </div>
+        
+        <div class="urun-kart">
+            <img src="Web_Photo_Editor (30).jpg" onclick="buyutResim(this)" alt="Tavşan ">
+            <p>Tavşan - 150 TL</p>
+        </div>
+        
+        <div class="urun-kart">
+            <img src="Web_Photo_Editor (31).jpg" onclick="buyutResim(this)" alt="Zürafa">
+            <p>Zürafa - 150 TL</p>
+        </div>
+        
+        <div class="urun-kart">
+            <img src="Web_Photo_Editor (32).jpg" onclick="buyutResim(this)" alt="Fil Mavi">
+            <p>Fil Mavi - 150 TL</p>
+        </div>
+        
+        <div class="urun-kart">
+            <img src="Web_Photo_Editor (33).jpg" onclick="buyutResim(this)" alt="Ördek">
+            <p>Ördek - 150 TL</p>
+        </div>
+        
+        <div class="urun-kart">
+            <img src="Web_Photo_Editor (34).jpg" onclick="buyutResim(this)" alt="Koala">
+            <p>Koala - 150 TL</p>
+        </div>
+        
+        <div class="urun-kart">
+            <img src="Web_Photo_Editor (35).jpg" onclick="buyutResim(this)" alt="Fare">
+            <p>Fare - 150 TL</p>
+        </div>
+        
+        <div class="urun-kart">
+            <img src="Web_Photo_Editor (36).jpg" onclick="buyutResim(this)" alt="Yarasa">
+            <p>Yarasa - 150 TL</p>
+        </div>
+        
+        <div class="urun-kart">
+            <img src="Web_Photo_Editor (36).jpg" onclick="buyutResim(this)" alt="Kurbağalı Civciv">
+            <p>Kurbağalı Civciv - 150 TL</p>
+        </div>
+        
+
+    </div>
+
+    <div id="myModal" class="resim-modal" onclick="this.style.display='none'">
+        <span class="kapat-butonu">&times;</span>
+        <img class="modal-icerik" id="img01">
+    </div>
+
+    <script>
+        function buyutResim(element) {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("img01");
+            modal.style.display = "block";
+            modalImg.src = element.src;
+        }
+    </script>
+
+</body>
+</html>
+
+
+       
